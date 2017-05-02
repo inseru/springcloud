@@ -19,14 +19,23 @@ class App implements Runnable {
 	public static int num = 50;
 
 	@Override
-	public synchronized void run() {
+	public void run() {
+		test();
+	}
+
+	public synchronized void test() {
 		for (int i = 1; i <= 50; i++) {
 			if (num > 0) {
-				System.out.println("thread:" + Thread.currentThread().getName() + "," + App.num);
+				System.out.println("thread:" + Thread.currentThread().getName() + i + "," + +num);
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				num--;
 			}
 		}
-
 	}
 
 }

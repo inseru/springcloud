@@ -1,9 +1,13 @@
 package com.qjs.yonth.poi;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +21,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 import org.junit.Test;
 
 import com.alibaba.fastjson.JSON;
@@ -112,100 +114,6 @@ public class poiTest {
 	}
 
 	/**
-	 * 城市
-	 * 
-	 * @throws IOException
-	 * @throws JsonMappingException
-	 * @throws JsonParseException
-	 */
-	@Test
-	public void test5() throws JsonParseException, JsonMappingException, IOException {
-		String fullFileName = "china-city-list.json";
-
-		File file = new File(fullFileName);
-		Scanner scanner = null;
-		StringBuilder buffer = new StringBuilder();
-		try {
-			scanner = new Scanner(file, "utf-8");
-			while (scanner.hasNextLine()) {
-				buffer.append(scanner.nextLine());
-			}
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} finally {
-			if (scanner != null) {
-				scanner.close();
-			}
-		}
-		ObjectMapper mapper = new ObjectMapper();
-		List<city> list = mapper.readValue(buffer.toString(), new TypeReference<List<city>>() {
-		});
-		System.out.println(list.size());
-		// System.out.println(list.get(0).getCityZh());
-		Workbook wb = new XSSFWorkbook(); // execel:2007
-		FileOutputStream fos = null;
-		try {
-			fos = new FileOutputStream(new File("a1.xlsx"));
-			Sheet st = wb.createSheet("test1");
-			city city = null;
-			int a = 1;
-			String id = null;
-			for (int i = 0; i < list.size(); i++) {
-				Row r = st.createRow(i);
-				city = list.get(i);
-				for (int j = 0; j < 8; j++) {
-					if (j == 0) {
-						Cell c = r.createCell(j);
-						id = "YY" + a;
-						c.setCellValue(id);
-					}
-					// if (j == 1) {
-					// Cell c = r.createCell(j);
-					// c.setCellValue(city.getId());
-					// }
-					// if (j == 2) {
-					// Cell c = r.createCell(j);
-					// c.setCellValue(city.getCityEn());
-					// }
-					// if (j == 3) {
-					// Cell c = r.createCell(j);
-					// c.setCellValue(city.getCityZh());
-					// }
-					// if (j == 4) {
-					// Cell c = r.createCell(j);
-					// c.setCellValue(city.getProvinceZh());
-					// }
-					// if (j == 5) {
-					// Cell c = r.createCell(j);
-					// c.setCellValue(city.getLeaderZh());
-					// }
-					// if (j == 6) {
-					// Cell c = r.createCell(j);
-					// c.setCellValue(city.getLat());
-					// }
-					// if (j == 7) {
-					// Cell c = r.createCell(j);
-					// c.setCellValue(city.getLon());
-					// }
-				}
-				a++;
-			}
-			wb.write(fos);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (fos != null) {
-				try {
-					fos.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
-
-	/**
 	 * 视频
 	 * 
 	 * @throws IOException
@@ -285,6 +193,32 @@ public class poiTest {
 				}
 			}
 		}
+	}
+
+	/**
+	 * io
+	 * 
+	 * @throws JsonParseException
+	 * @throws JsonMappingException
+	 * @throws IOException
+	 */
+	@Test
+	public void test7() throws JsonParseException, JsonMappingException, IOException {
+		String fullFileName = "Videos.json";
+		File file = new File(fullFileName);
+		File o = new File("b.json");
+		FileInputStream in = new FileInputStream(file);
+		InputStreamReader inr = new InputStreamReader(in, "utf-8");
+		OutputStream os = new FileOutputStream(o);
+		OutputStreamWriter out = new OutputStreamWriter(os, "utf-8");
+		int n = 10;
+		int a = 0;
+		char[] c = new char[n];
+		while ((a = inr.read(c)) != -1) {
+			out.write(c, 0, a);
+			out.flush();
+		}
+		out.close();
 	}
 
 }

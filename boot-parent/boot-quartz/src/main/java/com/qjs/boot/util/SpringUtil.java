@@ -1,4 +1,4 @@
-package com.gtmc.gclub.chat.util;
+package com.qjs.boot.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +25,7 @@ public class SpringUtil implements ApplicationContextAware {
 
 	private static ApplicationContext applicationContext = null;
 
+	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 
 		if (SpringUtil.applicationContext == null) {

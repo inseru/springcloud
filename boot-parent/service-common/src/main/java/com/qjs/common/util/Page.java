@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.gtmc.gclub.chat.util;
+package com.qjs.common.util;
 
 import java.io.Serializable;
 import java.util.List;
@@ -153,5 +153,4 @@ public class Page<T> implements Serializable {
 		this.orderDirection = orderDirection;
 	}
 
-	
 }
