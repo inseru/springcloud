@@ -1,0 +1,13 @@
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles
+Servers/
+
+# Maven
+target/
+*.ser
+*.ec

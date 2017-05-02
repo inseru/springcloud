@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <context id="Oracle" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <property name="javaFileEncoding" value="UTF-8"/>
+    
+    <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+      <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+      <property name="caseSensitive" value="true"/>
+      <!--<property name="beginningDelimiter" value="`"/>-->
+      <!--<property name="endingDelimiter" value="`"/>-->
+    </plugin>
+
+<!-- 
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                    connectionURL="jdbc:oracle:thin:@10.180.8.214:1521:Ownerapp"
+                    userId="JMCAPP"
+                    password="JMCAPP">
+    </jdbcConnection>
+ -->
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                    connectionURL="jdbc:oracle:thin:@10.180.8.214:1521:Ownerapp"
+                    userId="Ownerapp"
+                    password="Ownerapp">
+    </jdbcConnection>
+
+    <javaModelGenerator targetPackage="com.gtmc.gclub.chat.model" targetProject="./src/main/java"/>
+
+    <sqlMapGenerator targetPackage="mapper/oracle" targetProject="./src/main/resources"/>
+
+    <javaClientGenerator targetPackage="com.gtmc.gclub.chat.dao" targetProject="./src/main/java" type="XMLMAPPER"/>
+
+    <table tableName="TM_DEALER_TMP" >
+    	<generatedKey column="dealer_code" sqlStatement="JDBC"/>
+    </table>
+  </context>
+</generatorConfiguration>
