@@ -20,6 +20,7 @@ public class LockThread {
 class App2 implements Runnable {
 	public static int num = 50;
 
+	// 对象锁
 	private final ReentrantLock lock = new ReentrantLock();
 
 	@Override

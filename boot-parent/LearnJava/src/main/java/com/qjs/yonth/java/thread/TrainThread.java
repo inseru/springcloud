@@ -23,6 +23,7 @@ class App implements Runnable {
 		test();
 	}
 
+	// 同步锁
 	public synchronized void test() {
 		for (int i = 1; i <= 50; i++) {
 			if (num > 0) {
