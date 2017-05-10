@@ -23,7 +23,7 @@ class App implements Runnable {
 		test();
 	}
 
-	// 同步锁
+	// 同步锁 对同一资源对象的操作，才存在互斥锁
 	public synchronized void test() {
 		for (int i = 1; i <= 50; i++) {
 			if (num > 0) {
