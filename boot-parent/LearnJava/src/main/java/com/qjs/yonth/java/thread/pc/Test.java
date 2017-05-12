@@ -11,6 +11,8 @@ public class Test {
 		new Thread(p, "t3").start();
 		new Thread(p, "t5").start();
 		new Thread(p, "t6").start();
+		new Thread(p, "t7").start();
+		new Thread(p, "t8").start();
 		Consumer c = new Consumer(store);
 		new Thread(c, "c1").start();
 		new Thread(c, "c2").start();
