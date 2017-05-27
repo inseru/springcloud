@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2017年2月4日
  */
 @RestController
-@RequestMapping("/chat")
+@RequestMapping("/applet/chat")
 public class WxChatController {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 

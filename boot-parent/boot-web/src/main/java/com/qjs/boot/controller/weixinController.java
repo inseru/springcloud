@@ -18,13 +18,14 @@ import com.qjs.properties.Commons;
 import io.swagger.annotations.ApiOperation;
 
 /**
+ * 小程序
  * 
  * @author qianjs163@163.com
  *
  * @date 2016年12月11日
  */
 @RestController
-@RequestMapping("/wx")
+@RequestMapping("/applet")
 public class weixinController {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 

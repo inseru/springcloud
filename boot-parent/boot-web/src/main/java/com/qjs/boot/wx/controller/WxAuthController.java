@@ -18,8 +18,9 @@ public class WxAuthController {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private WxService wxService;
-	
+
 	/**
+	 * 获取jsSDk
 	 * 
 	 * @author qianjs163@163.com 2017年2月9日 下午2:59:14
 	 * @return
