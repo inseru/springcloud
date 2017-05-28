@@ -17,7 +17,7 @@ import com.qjs.boot.wx.service.CoreService;
 import com.qjs.wx.course.util.SignUtil;
 
 @RestController
-@RequestMapping("pWx")
+@RequestMapping("wx")
 public class WxMessageController {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 

@@ -17,11 +17,11 @@ public class WxTest {
 	@Test
 	public void test1() {
 		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
-		String u = url.replaceAll("APPID", "wx3b91e1c6c508000b").replaceAll("APPSECRET",
-				"b683ff1c8717db66a08504af04275c03");
+		String u = url.replaceAll("APPID", "wx05d047dd429a4be3").replaceAll("APPSECRET",
+				"f7fe240bd572a19d673d279b69b5db47");
 		String result = HttpClient.sendGet(u, "");
 		System.out.println(result);
-		//56cNu730XfuPXf3aKa_ZeMgQSP5bsdMEk-l5VdMOE5jpVz88hEEecseCY8f6laDq83HfOO13EQlNlqenQG79nXRs2aTGQrYnOpisBFhwO4P_2vSPblQd1iT49zvcn1c1BZBeAAAOMO
+		// 56cNu730XfuPXf3aKa_ZeMgQSP5bsdMEk-l5VdMOE5jpVz88hEEecseCY8f6laDq83HfOO13EQlNlqenQG79nXRs2aTGQrYnOpisBFhwO4P_2vSPblQd1iT49zvcn1c1BZBeAAAOMO
 	}
 
 	@Test
@@ -42,15 +42,13 @@ public class WxTest {
 		// {"ticket":"gQGM8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyeTFxdTVzSVhjbjMxTTJHTTFvMTgAAgQCnchYAwQAjScA","expire_seconds":2592000,"url":"http://weixin.qq.com/q/02y1qu5sIXcn31M2GM1o18"}
 	}
 
-	
-	
 	@Test
 	public void test3() {
 		// 创建一个永久二维码
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("scene_str", "测试");
 		QrCode code = new QrCode();
-		//code.setExpire_seconds(2592000);
+		// code.setExpire_seconds(2592000);
 		code.setAction_name("QR_LIMIT_STR_SCENE");
 		code.setAction_info(new QrActionInfo<String, String>(map));
 		String param = JSON.toJSONString(code);
@@ -61,5 +59,20 @@ public class WxTest {
 		String result = HttpClient.post(u, param);
 		System.out.println(result);
 		// {"ticket":"gQFO8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYU9oWTU1SVhjbjMxMDAwMDAwN3QAAgTvTspYAwQAAAAA","url":"http://weixin.qq.com/q/02aOhY55IXcn310000007t"}
+	}
+
+	// 小程序回复消息接口
+	@Test
+	public void test4() {
+		// openid gh_0a31c596cbdc
+		String url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=ACCESS_TOKEN";
+		String u = url.replaceAll("ACCESS_TOKEN",
+				"oqNH0zI1ZBITcR7Zm6rsme97C2oRTRlNfyx9-ftRTWh_EpdJcDG9aO2nl9dqs7Sk5G6eA25maS4oxuJa7x16TtYp54l4J-uiS-wa9hJi1qZRyDxhh6YZ93dtNq6846pRJSYaAIAMVB");
+		AppletChatMessage mess = new AppletChatMessage("oIDgJ0T2x9XqskkuF4qq2dOc_LQw", "text");
+		Map<String, String> map = new HashMap<>();
+		map.put("content", "哈哈");
+		mess.setText(map);
+		String resp = HttpClient.post(u, JSON.toJSON(mess).toString());
+		System.err.println(resp);
 	}
 }

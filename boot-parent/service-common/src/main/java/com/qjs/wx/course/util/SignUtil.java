@@ -12,7 +12,14 @@ import java.util.Arrays;
  */
 public class SignUtil {
 	// 与接口配置信息中的Token要一致
-	private static String token = "weixinCourse";
+	public static String TOKEN = "weixinCourse";
+
+	/**
+	 * 微信生成的 ASEKey
+	 */
+	public static String ENCODINGAESKEY = "uae0BYeAYGg3zaqM57KrexJs5uZp7slh8rnJ6lQlAmi";
+
+	public static String APPLETAPPID = "wx05d047dd429a4be3";
 
 	/**
 	 * 验证签名
@@ -23,7 +30,7 @@ public class SignUtil {
 	 * @return
 	 */
 	public static boolean checkSignature(String signature, String timestamp, String nonce) {
-		String[] arr = new String[] { token, timestamp, nonce };
+		String[] arr = new String[] { TOKEN, timestamp, nonce };
 		// 将token、timestamp、nonce三个参数进行字典序排序
 		Arrays.sort(arr);
 		StringBuilder content = new StringBuilder();
@@ -76,4 +83,5 @@ public class SignUtil {
 		String s = new String(tempArr);
 		return s;
 	}
+
 }
