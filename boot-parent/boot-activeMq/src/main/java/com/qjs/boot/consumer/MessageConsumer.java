@@ -1,5 +1,7 @@
 package com.qjs.boot.consumer;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jms.annotation.JmsListener;
@@ -12,7 +14,7 @@ public class MessageConsumer {
 
 	@JmsListener(destination = "test1")
 	@SendTo("test2")
-	public String receivedQueue(String msg) {
+	public String receivedQueue(Map<String, Object> msg) {
 		System.err.println("Has received from test1:" + " msg: " + msg);
 		return "test2";
 	}

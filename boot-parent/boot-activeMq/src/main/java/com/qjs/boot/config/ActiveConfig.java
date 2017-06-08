@@ -17,7 +17,7 @@ public class ActiveConfig {
 
 	@Bean
 	public Queue logQueue() {
-		return new ActiveMQQueue("test");
+		return new ActiveMQQueue("test1");
 	}
 
 	@Bean

@@ -1,5 +1,8 @@
 package com.qjs.boot.producer;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.jms.Queue;
 
 import org.slf4j.Logger;
@@ -18,6 +21,9 @@ public class MessageProducer {
 	private Queue logQueue;
 
 	public void send(String msg) {
-		this.jmsMessagingTemplate.convertAndSend(this.logQueue, msg);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("as", 12);
+		map.put("33s", "sfs");
+		this.jmsMessagingTemplate.convertAndSend(this.logQueue, map);
 	}
 }
