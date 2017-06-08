@@ -41,6 +41,7 @@
   	<modules>
   		<module>service-common</module>
   		<module>boot-rabbitmq</module>
+  		<module>boot-activeMq</module>
         <module>boot-web</module>
         <module>boot-eureka</module>
         <module>boot-quartz</module>

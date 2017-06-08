@@ -64,13 +64,14 @@ public class WxTest {
 	// 小程序回复消息接口
 	@Test
 	public void test4() {
-		// openid gh_0a31c596cbdc
+		// openid oIDgJ0T2x9XqskkuF4qq2dOc_LQw
+		// oIDgJ0YFd7E_TcAcnmj_9w5LPgRs
 		String url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=ACCESS_TOKEN";
 		String u = url.replaceAll("ACCESS_TOKEN",
-				"oqNH0zI1ZBITcR7Zm6rsme97C2oRTRlNfyx9-ftRTWh_EpdJcDG9aO2nl9dqs7Sk5G6eA25maS4oxuJa7x16TtYp54l4J-uiS-wa9hJi1qZRyDxhh6YZ93dtNq6846pRJSYaAIAMVB");
-		AppletChatMessage mess = new AppletChatMessage("oIDgJ0T2x9XqskkuF4qq2dOc_LQw", "text");
+				"ZJT9rSl_Kqc7_KBGUWhjgjwyNPLEaU_ZKiV3TMXmo-M3tdFB7_xWH54hgBuNXI9tmZcbZbVUBT-ABMrVFKJQNl1R9cz3UkM-obTL0RSU0xqddbUaCJ8t6olbEX939SRqXNBgAHAQGU");
+		AppletChatMessage mess = new AppletChatMessage("oIDgJ0YFd7E_TcAcnmj_9w5LPgRs", "text");
 		Map<String, String> map = new HashMap<>();
-		map.put("content", "哈哈");
+		map.put("content", "二货");
 		mess.setText(map);
 		String resp = HttpClient.post(u, JSON.toJSON(mess).toString());
 		System.err.println(resp);
