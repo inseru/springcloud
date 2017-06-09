@@ -38,6 +38,7 @@
 				<jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
   </properties>
   
+  
   	<modules>
   		<module>service-common</module>
   		<module>boot-rabbitmq</module>
@@ -47,7 +48,6 @@
         <module>boot-quartz</module>
         <module>LearnJava</module>
     </modules>
-  
   
   <dependencyManagement>
   	 <dependencies>
