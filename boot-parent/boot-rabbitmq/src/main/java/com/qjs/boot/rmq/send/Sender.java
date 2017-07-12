@@ -13,10 +13,9 @@ public class Sender {
 
 	public void send(String id) {
 		String context = "hello " + new Date();
-		System.out.println("Sender : " + id);
 		// 第一个参数表示交换机，第二个参数表示routing key，第三个参数即消息
 		// this.rabbitTemplate.convertAndSend("hello", id);
-		this.rabbitTemplate.convertAndSend("spring-boot-exchange", "spring.boot", "test1");
+		this.rabbitTemplate.convertAndSend("spring-boot-exchange", "spring.boot1", "test1");
 		this.rabbitTemplate.convertAndSend("spring-boot-exchange", "spring.web", "test2");
 		this.rabbitTemplate.convertAndSend("spring-boot-exchange", "qjs.web", "test3");
 	}
