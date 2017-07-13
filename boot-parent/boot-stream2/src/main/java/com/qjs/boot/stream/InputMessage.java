@@ -11,6 +11,12 @@ public class InputMessage {
 	@StreamListener(Sink.INPUT)
 	public void input(Message<String> message) {
 		System.out.println("一般监听收到：" + message);
+		try {
+			Thread.currentThread().sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
