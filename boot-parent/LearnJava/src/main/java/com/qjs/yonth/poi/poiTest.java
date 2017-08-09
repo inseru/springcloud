@@ -21,7 +21,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
-import org.junit.Test;
 
 import com.alibaba.fastjson.JSON;
 import com.qjs.yonth.poi.util.ExecelTemplate;
@@ -32,7 +31,7 @@ public class poiTest {
 	/**
 	 * 设置样式，效果很失败
 	 */
-	@Test
+	// @Test
 	public void test1() {
 		// Workbook wb=new HSSFWorkbook(); //execel:2003
 		Workbook wb = new XSSFWorkbook(); // execel:2007
@@ -72,7 +71,7 @@ public class poiTest {
 	/**
 	 * 通过模板设置样式
 	 */
-	@Test
+	// @Test
 	public void test2() {
 		ExecelTemplate w = ExecelTemplate.getInstance().readTemplateByPath("students.xlsx");
 		w.createNewRow();
@@ -94,7 +93,7 @@ public class poiTest {
 	/**
 	 * 基于注解
 	 */
-	@Test
+	// @Test
 	public void test3() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("title", "学生信息");
@@ -108,7 +107,7 @@ public class poiTest {
 	/**
 	 * 通过对象读出数据
 	 */
-	@Test
+	// @Test
 	public void test4() {
 
 	}
@@ -120,7 +119,7 @@ public class poiTest {
 	 * @throws JsonMappingException
 	 * @throws JsonParseException
 	 */
-	@Test
+	// @Test
 	public void test6() throws JsonParseException, JsonMappingException, IOException {
 		String fullFileName = "Videos.json";
 
@@ -202,7 +201,7 @@ public class poiTest {
 	 * @throws JsonMappingException
 	 * @throws IOException
 	 */
-	@Test
+	// @Test
 	public void test7() throws JsonParseException, JsonMappingException, IOException {
 		String fullFileName = "Videos.json";
 		File file = new File(fullFileName);

@@ -12,7 +12,7 @@ public class InputMessage {
 	public void input(Message<String> message) {
 		System.out.println("一般监听收到：" + message);
 		try {
-			Thread.currentThread().sleep(500);
+			Thread.currentThread().sleep(10);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

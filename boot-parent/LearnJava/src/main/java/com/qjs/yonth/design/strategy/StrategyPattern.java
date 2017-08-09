@@ -1,7 +1,5 @@
 package com.qjs.yonth.design.strategy;
 
-import org.junit.Test;
-
 /**
  * 策略模式 这是验证类
  * 
@@ -10,7 +8,7 @@ import org.junit.Test;
  */
 public class StrategyPattern extends character {
 
-	@Test
+	// @Test
 	public void test1() {
 		StrategyPattern sp = new StrategyPattern();
 		sp.fight();
