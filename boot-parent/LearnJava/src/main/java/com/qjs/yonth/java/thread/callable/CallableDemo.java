@@ -13,7 +13,7 @@ public class CallableDemo {
 
 	public static void main(String[] args) {
 		thread1 d = new thread1();
-		FutureTask<Object> ft = new FutureTask<>(d);
+		FutureTask<Object> ft = new FutureTask<Object>(d);
 		Thread t = new Thread(ft);
 		t.start();
 		try {
