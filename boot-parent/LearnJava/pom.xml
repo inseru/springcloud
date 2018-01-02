@@ -65,6 +65,13 @@
 			    <artifactId>javassist</artifactId>
 			 	<version>3.20.0-GA</version>
 			</dependency> 
+			
+			<dependency>
+			    <groupId>io.netty</groupId>
+			    <artifactId>netty-all</artifactId>
+			   <!--  <version>4.1.15.Final</version> -->
+			    <version>5.0.0.Alpha1</version>
+			</dependency>
   
    </dependencies>
    
